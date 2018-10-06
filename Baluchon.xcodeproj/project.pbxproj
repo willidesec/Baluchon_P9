@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3F367E36215CF5E5000EF3E2 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F367E35215CF5E5000EF3E2 /* CurrencyViewController.swift */; };
+		3F367E38215CFEE1000EF3E2 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F367E37215CFEE1000EF3E2 /* WeatherViewController.swift */; };
+		3F5B465F2161561D00119CA9 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B465E2161561D00119CA9 /* UIView.swift */; };
+		3F5B46612161F9FE00119CA9 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B46602161F9FE00119CA9 /* TranslateViewController.swift */; };
+		3FD823DE2164EEAC003D7050 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3FD823DD2164EEAC003D7050 /* ThirstySoftRegular.otf */; };
+		3FD823E02164FFB7003D7050 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD823DF2164FFB7003D7050 /* UIColor.swift */; };
+		3FD824202167AE64003D7050 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8241F2167AE64003D7050 /* WeatherCell.swift */; };
+		3FD824222167B00A003D7050 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD824212167B00A003D7050 /* Weather.swift */; };
 		3FF4FC49215A9853007AE3E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF4FC48215A9853007AE3E8 /* AppDelegate.swift */; };
 		3FF4FC4E215A9853007AE3E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF4FC4C215A9853007AE3E8 /* Main.storyboard */; };
 		3FF4FC50215A9854007AE3E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF4FC4F215A9854007AE3E8 /* Assets.xcassets */; };
@@ -27,6 +34,13 @@
 
 /* Begin PBXFileReference section */
 		3F367E35215CF5E5000EF3E2 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		3F367E37215CFEE1000EF3E2 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		3F5B465E2161561D00119CA9 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		3F5B46602161F9FE00119CA9 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
+		3FD823DD2164EEAC003D7050 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
+		3FD823DF2164FFB7003D7050 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		3FD8241F2167AE64003D7050 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		3FD824212167B00A003D7050 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		3FF4FC45215A9853007AE3E8 /* Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF4FC48215A9853007AE3E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FF4FC4D215A9853007AE3E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,10 +70,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FD823DC2163FBEC003D7050 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3F5B465E2161561D00119CA9 /* UIView.swift */,
+				3FD823DF2164FFB7003D7050 /* UIColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3FF4FC3C215A9853007AE3E8 = {
 			isa = PBXGroup;
 			children = (
 				3FF4FC47215A9853007AE3E8 /* Baluchon */,
+				3FD823DC2163FBEC003D7050 /* Extensions */,
 				3FF4FC5C215A9854007AE3E8 /* BaluchonTests */,
 				3FF4FC46215A9853007AE3E8 /* Products */,
 			);
@@ -98,6 +122,9 @@
 			isa = PBXGroup;
 			children = (
 				3F367E35215CF5E5000EF3E2 /* CurrencyViewController.swift */,
+				3F5B46602161F9FE00119CA9 /* TranslateViewController.swift */,
+				3F367E37215CFEE1000EF3E2 /* WeatherViewController.swift */,
+				3FD8241F2167AE64003D7050 /* WeatherCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -105,6 +132,7 @@
 		3FF4FC69215A98FF007AE3E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3FD824212167B00A003D7050 /* Weather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +152,7 @@
 			children = (
 				3FF4FC48215A9853007AE3E8 /* AppDelegate.swift */,
 				3FF4FC54215A9854007AE3E8 /* Info.plist */,
+				3FD823DD2164EEAC003D7050 /* ThirstySoftRegular.otf */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -211,6 +240,7 @@
 			files = (
 				3FF4FC53215A9854007AE3E8 /* LaunchScreen.storyboard in Resources */,
 				3FF4FC50215A9854007AE3E8 /* Assets.xcassets in Resources */,
+				3FD823DE2164EEAC003D7050 /* ThirstySoftRegular.otf in Resources */,
 				3FF4FC4E215A9853007AE3E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,7 +260,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FF4FC49215A9853007AE3E8 /* AppDelegate.swift in Sources */,
+				3FD823E02164FFB7003D7050 /* UIColor.swift in Sources */,
+				3F5B46612161F9FE00119CA9 /* TranslateViewController.swift in Sources */,
+				3F367E38215CFEE1000EF3E2 /* WeatherViewController.swift in Sources */,
 				3F367E36215CF5E5000EF3E2 /* CurrencyViewController.swift in Sources */,
+				3FD824222167B00A003D7050 /* Weather.swift in Sources */,
+				3F5B465F2161561D00119CA9 /* UIView.swift in Sources */,
+				3FD824202167AE64003D7050 /* WeatherCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,12 +18,21 @@ class CurrencyViewController: UIViewController {
         super.viewDidLoad()
         
         setUpConvertButton()
+        
+        hideNavigationBar()
 
     }
     
     // MARK: - Methods
     fileprivate func setUpConvertButton() {
+        convertButton.setGradientBackground(colorOne: UIColor.orangeThemeColor, colorTwo: UIColor.yellowThemeColor, cornerRadius: convertButton.frame.height / 2)
         convertButton.layer.cornerRadius = convertButton.frame.height / 2
+    }
+    
+    fileprivate func hideNavigationBar() {
+        // Hide the background of the navigation bar
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
 
     
