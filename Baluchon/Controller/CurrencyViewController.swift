@@ -34,6 +34,18 @@ class CurrencyViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
     }
+    
+    // MARK: - Action
+    @IBAction func convertButtonDidTapped() {
+        CurrencyService.shared.getRate { (success, currency) in
+            if success, let currency = currency {
+                
+            } else {
+                print("error")
+            }
+        }
+    }
+    
 
     
 

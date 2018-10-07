@@ -11,6 +11,8 @@
 		3F367E38215CFEE1000EF3E2 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F367E37215CFEE1000EF3E2 /* WeatherViewController.swift */; };
 		3F5B465F2161561D00119CA9 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B465E2161561D00119CA9 /* UIView.swift */; };
 		3F5B46612161F9FE00119CA9 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B46602161F9FE00119CA9 /* TranslateViewController.swift */; };
+		3F7154762169398C008B59DA /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7154752169398C008B59DA /* CurrencyService.swift */; };
+		3F71547821694052008B59DA /* InfoRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F71547721694052008B59DA /* InfoRate.swift */; };
 		3FD823DE2164EEAC003D7050 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3FD823DD2164EEAC003D7050 /* ThirstySoftRegular.otf */; };
 		3FD823E02164FFB7003D7050 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD823DF2164FFB7003D7050 /* UIColor.swift */; };
 		3FD824202167AE64003D7050 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8241F2167AE64003D7050 /* WeatherCell.swift */; };
@@ -37,6 +39,8 @@
 		3F367E37215CFEE1000EF3E2 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		3F5B465E2161561D00119CA9 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3F5B46602161F9FE00119CA9 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
+		3F7154752169398C008B59DA /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
+		3F71547721694052008B59DA /* InfoRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRate.swift; sourceTree = "<group>"; };
 		3FD823DD2164EEAC003D7050 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		3FD823DF2164FFB7003D7050 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3FD8241F2167AE64003D7050 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 		3FF4FC69215A98FF007AE3E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3F7154752169398C008B59DA /* CurrencyService.swift */,
+				3F71547721694052008B59DA /* InfoRate.swift */,
 				3FD824212167B00A003D7050 /* Weather.swift */,
 			);
 			path = Model;
@@ -261,9 +267,11 @@
 			files = (
 				3FF4FC49215A9853007AE3E8 /* AppDelegate.swift in Sources */,
 				3FD823E02164FFB7003D7050 /* UIColor.swift in Sources */,
+				3F7154762169398C008B59DA /* CurrencyService.swift in Sources */,
 				3F5B46612161F9FE00119CA9 /* TranslateViewController.swift in Sources */,
 				3F367E38215CFEE1000EF3E2 /* WeatherViewController.swift in Sources */,
 				3F367E36215CF5E5000EF3E2 /* CurrencyViewController.swift in Sources */,
+				3F71547821694052008B59DA /* InfoRate.swift in Sources */,
 				3FD824222167B00A003D7050 /* Weather.swift in Sources */,
 				3F5B465F2161561D00119CA9 /* UIView.swift in Sources */,
 				3FD824202167AE64003D7050 /* WeatherCell.swift in Sources */,
