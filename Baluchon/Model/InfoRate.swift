@@ -9,7 +9,5 @@
 import Foundation
 
 struct InfoRate: Decodable {
-    var date: String?
-    var base: String?
     var rates : [String : Float]?
 }

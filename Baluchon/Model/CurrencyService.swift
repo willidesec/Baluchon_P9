@@ -36,11 +36,11 @@ class CurrencyService {
                     callback(false, nil)
                     return
                 }
-                guard let responseJSON = try? JSONDecoder().decode(InfoRate.self, from: data) else {
+                guard let infoRateData = try? JSONDecoder().decode(InfoRate.self, from: data) else {
                     callback(false, nil)
                     return
                 }
-                print(responseJSON)
+                callback(true, infoRateData)
             }
         }
         task?.resume()
