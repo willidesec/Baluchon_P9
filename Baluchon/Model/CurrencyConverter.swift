@@ -13,10 +13,18 @@ class CurrencyConverter {
     
     func getAmount(textfield: UITextField) -> Float {
         guard let stringAmount = textfield.text else { return 0 }
-        print(stringAmount)
         let amount = (stringAmount as NSString).floatValue
-        print(amount)
         return amount
+    }
+    
+    func getExchangeRate(infoRate: InfoRate) -> Float {
+        guard let usdRate = infoRate.rates?["USD"] else { return 0 }
+        return usdRate
+    }
+    
+    func convertCurrency(eur: Float, with exchangeRate: Float) -> Float {
+        let usdAmount = eur * exchangeRate
+        return usdAmount
     }
     
 }
