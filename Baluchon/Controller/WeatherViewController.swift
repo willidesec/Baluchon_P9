@@ -75,7 +75,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell") as! WeatherCell
         
-        cell.setWeatherInformation(weather: weatherInformation)
+        cell.weather = weatherInformation
         
         return cell
     }

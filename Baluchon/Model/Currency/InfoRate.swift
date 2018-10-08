@@ -9,5 +9,5 @@
 import Foundation
 
 struct InfoRate: Decodable {
-    var rates : [String : Float]?
+    let rates : [String : Float]
 }

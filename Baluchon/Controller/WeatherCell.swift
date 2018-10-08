@@ -14,10 +14,13 @@ class WeatherCell: UITableViewCell {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     
-    // MARK: - Methods
-    func setWeatherInformation(weather: Weather) {
-        cityLabel.text = weather.city
-        temperatureLabel.text = "\(weather.temperature)°C"
+    var weather: Weather! {
+        didSet {
+            cityLabel.text = weather.city
+            temperatureLabel.text = "\(weather.temperature)°C"
+        }
     }
+    
+    // MARK: - Methods
 
 }

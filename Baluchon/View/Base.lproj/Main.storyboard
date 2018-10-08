@@ -270,35 +270,58 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Br-k9-a8o">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDC-E7-YDE">
                                 <rect key="frame" x="16" y="670" width="343" height="43"/>
-                                <color key="backgroundColor" red="0.12941176470588234" green="0.57647058823529407" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
-                                <state key="normal" title="Convert">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="convertButtonDidTapped" destination="Pmf-gx-6BN" eventType="touchUpInside" id="u8H-Xa-A50"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Br-k9-a8o">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                        <color key="backgroundColor" red="0.55686274509803924" green="0.61960784313725492" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                        <state key="normal" title="Convert">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="convertButtonDidTapped" destination="Pmf-gx-6BN" eventType="touchUpInside" id="u8H-Xa-A50"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hyh-F3-jg5">
+                                        <rect key="frame" x="150" y="0.0" width="43" height="43"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="hyh-F3-jg5" secondAttribute="height" multiplier="1:1" id="mbS-Wo-dKC"/>
+                                            <constraint firstAttribute="height" constant="43" id="uYh-sH-cE8"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2Br-k9-a8o" firstAttribute="top" secondItem="gDC-E7-YDE" secondAttribute="top" id="8DP-7j-GVX"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Br-k9-a8o" secondAttribute="bottom" id="Fq1-vx-LqM"/>
+                                    <constraint firstItem="hyh-F3-jg5" firstAttribute="centerY" secondItem="gDC-E7-YDE" secondAttribute="centerY" id="Fz1-k0-NTK"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="43" id="NPN-EU-1Bs"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Br-k9-a8o" secondAttribute="trailing" id="aED-bD-jT7"/>
+                                    <constraint firstItem="hyh-F3-jg5" firstAttribute="centerX" secondItem="gDC-E7-YDE" secondAttribute="centerX" id="cAQ-rR-jor"/>
+                                    <constraint firstAttribute="width" secondItem="gDC-E7-YDE" secondAttribute="height" multiplier="343:43" id="eac-bH-bd4"/>
+                                    <constraint firstItem="2Br-k9-a8o" firstAttribute="leading" secondItem="gDC-E7-YDE" secondAttribute="leading" id="ugM-Kg-6dt"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="vgc-cH-fgH" firstAttribute="trailing" secondItem="2Br-k9-a8o" secondAttribute="trailing" constant="16" id="1kB-OF-bAt"/>
+                            <constraint firstItem="vgc-cH-fgH" firstAttribute="trailing" secondItem="gDC-E7-YDE" secondAttribute="trailing" constant="16" id="0s3-J7-nAe"/>
                             <constraint firstItem="dZT-ke-F4S" firstAttribute="top" secondItem="vgc-cH-fgH" secondAttribute="top" constant="58" id="JQU-cH-T6y"/>
                             <constraint firstItem="3Gf-x9-uAZ" firstAttribute="top" secondItem="fAF-FH-bvl" secondAttribute="top" id="LS5-JC-Wd4"/>
                             <constraint firstAttribute="bottom" secondItem="3Gf-x9-uAZ" secondAttribute="bottom" id="Oq2-pn-DBU"/>
                             <constraint firstItem="3Gf-x9-uAZ" firstAttribute="leading" secondItem="vgc-cH-fgH" secondAttribute="leading" id="PGk-rf-Yn9"/>
                             <constraint firstItem="dZT-ke-F4S" firstAttribute="leading" secondItem="vgc-cH-fgH" secondAttribute="leading" constant="35" id="RmF-hJ-JXZ"/>
                             <constraint firstItem="vgc-cH-fgH" firstAttribute="trailing" secondItem="dZT-ke-F4S" secondAttribute="trailing" constant="35" id="VjM-Qh-gFN"/>
-                            <constraint firstItem="2Br-k9-a8o" firstAttribute="leading" secondItem="vgc-cH-fgH" secondAttribute="leading" constant="16" id="hRP-IG-tIG"/>
-                            <constraint firstItem="vgc-cH-fgH" firstAttribute="bottom" secondItem="2Br-k9-a8o" secondAttribute="bottom" constant="16" id="nRu-oh-hve"/>
+                            <constraint firstItem="gDC-E7-YDE" firstAttribute="leading" secondItem="vgc-cH-fgH" secondAttribute="leading" constant="16" id="f6B-Ke-Fvt"/>
+                            <constraint firstItem="vgc-cH-fgH" firstAttribute="bottom" secondItem="gDC-E7-YDE" secondAttribute="bottom" constant="16" id="kzI-Jh-EUX"/>
                             <constraint firstItem="3Gf-x9-uAZ" firstAttribute="trailing" secondItem="vgc-cH-fgH" secondAttribute="trailing" id="ruf-LU-eYc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vgc-cH-fgH"/>
                     </view>
                     <navigationItem key="navigationItem" title="Currency" id="Stc-ul-PGb"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="hyh-F3-jg5" id="BjF-dt-m4S"/>
                         <outlet property="convertButton" destination="2Br-k9-a8o" id="TUW-7x-Fbq"/>
                         <outlet property="eurTextField" destination="qLV-Kr-OI3" id="sKB-yg-wdb"/>
                         <outlet property="usdTextField" destination="h5n-wh-Roc" id="P6z-ng-CS6"/>
@@ -372,7 +395,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waO-Id-dXu">
-                                                    <rect key="frame" x="294" y="13" width="65" height="34"/>
+                                                    <rect key="frame" x="239" y="13" width="65" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -424,7 +447,7 @@
                     <tabBarItem key="tabBarItem" title="Currency" image="Currency Icon" id="u8c-HZ-G56"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="5Uq-D1-K2N">
-                        <rect key="frame" x="0.0" y="44" width="375" height="102"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -449,7 +472,7 @@
                     <tabBarItem key="tabBarItem" title="Translate" image="Translate Icon" id="ivs-gU-VVp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="Ban-Fp-DGt">
-                        <rect key="frame" x="0.0" y="44" width="375" height="102"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="44"/>

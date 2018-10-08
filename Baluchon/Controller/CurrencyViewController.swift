@@ -11,19 +11,19 @@ import UIKit
 class CurrencyViewController: UIViewController {
     
     //MARK: - Properties
-    let converter = CurrencyConverter()
+    let currencyService = CurrencyService()
     
     // MARK: - Outlet
     @IBOutlet weak var convertButton: UIButton!
     @IBOutlet weak var usdTextField: UITextField!
     @IBOutlet weak var eurTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpConvertButton()
-        
+        convertButton.layer.cornerRadius = convertButton.frame.height / 2
         setupAddTargetIsNotEmptyTextFields()
         
         hideNavigationBar()
@@ -32,14 +32,19 @@ class CurrencyViewController: UIViewController {
     
     // MARK: - Action
     @IBAction func convertButtonDidTapped() {
+        toggleActivityIndicator(shown: true)
         
-        let baseAmount = converter.getAmount(textfield: eurTextField)
+        // Recover the amount to convert in the textField
+        let baseAmount = getAmount(textfield: eurTextField)
         
-        CurrencyService.shared.getRate { (success, infoRate) in
-            if success, let infoRate = infoRate {
-                let exchangeRate = self.converter.getExchangeRate(infoRate: infoRate)
-                let convertAmount = self.converter.convertCurrency(eur: baseAmount, with: exchangeRate)
-                self.updateDisplay(convertAmount)
+        currencyService.getRate { (success, usdRate) in
+            self.toggleActivityIndicator(shown: false)
+            
+            if success, let usdRate = usdRate {
+                let convertedAmount = baseAmount * usdRate
+                // Convert the amount in string with two decimal numbers
+                let stringAmount = String(format: "%.2f", convertedAmount)
+                self.usdTextField.text = stringAmount
             } else {
                 // Afficher un message d'erreur
                 print("error")
@@ -48,14 +53,16 @@ class CurrencyViewController: UIViewController {
     }
     
     //MARK: - Methods
-    func updateDisplay(_ convertedAmount: Float) {
-        let stringAmount = String(describing: convertedAmount)
-        usdTextField.text = stringAmount
+    
+    func getAmount(textfield: UITextField) -> Float {
+        guard let stringAmount = textfield.text else { return 0.0 }
+        guard let amount = Float(stringAmount) else { return 0.0 }
+        return amount
     }
     
     // Enable the convert button only if textfield is not empty
     func setupAddTargetIsNotEmptyTextFields() {
-        convertButton.isEnabled = false
+        disableButton(button: convertButton)
         eurTextField.addTarget(self, action: #selector(textFieldIsNotEmpty), for: .editingChanged)
     }
     
@@ -63,15 +70,11 @@ class CurrencyViewController: UIViewController {
         sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
         
         guard let amount = eurTextField.text, !amount.isEmpty else {
-            self.convertButton.isEnabled = false
+            disableButton(button: convertButton)
+            usdTextField.text = ""
             return
         }
-        convertButton.isEnabled = true
-    }
-    
-    fileprivate func setUpConvertButton() {
-        convertButton.setGradientBackground(colorOne: UIColor.blueThemeColor, colorTwo: UIColor.lightBlueThemeColor, cornerRadius: convertButton.frame.height / 2)
-        convertButton.layer.cornerRadius = convertButton.frame.height / 2
+       activateButton(button: convertButton)
     }
     
     fileprivate func hideNavigationBar() {
@@ -80,6 +83,23 @@ class CurrencyViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
+    private func toggleActivityIndicator(shown: Bool) {
+        convertButton.isHidden = shown
+        activityIndicator.isHidden = !shown
+    }
+    
+    fileprivate func activateButton(button: UIButton) {
+        button.isEnabled = true
+        button.backgroundColor = UIColor.blueThemeColor
+//        button.setGradientBackground(colorOne: UIColor.blueThemeColor, colorTwo: UIColor.lightBlueThemeColor, cornerRadius: button.frame.height / 2)
+    }
+    
+    fileprivate func disableButton(button: UIButton) {
+        button.isEnabled = false
+        button.backgroundColor = UIColor.darkGray
+        button.setTitleColor(UIColor.gray, for: .disabled)
+//        button.setGradientBackground(colorOne: UIColor.grayThemeColor, colorTwo: UIColor.lightGrayThemeColor, cornerRadius: button.frame.height / 2)
+    }
 
     
 

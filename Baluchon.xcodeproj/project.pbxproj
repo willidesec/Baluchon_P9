@@ -13,7 +13,7 @@
 		3F5B46612161F9FE00119CA9 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B46602161F9FE00119CA9 /* TranslateViewController.swift */; };
 		3F7154762169398C008B59DA /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7154752169398C008B59DA /* CurrencyService.swift */; };
 		3F71547821694052008B59DA /* InfoRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F71547721694052008B59DA /* InfoRate.swift */; };
-		3FD7271C216A7CD600DFB9A3 /* CurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD7271B216A7CD600DFB9A3 /* CurrencyConverter.swift */; };
+		3FD7271E216A993D00DFB9A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD7271D216A993D00DFB9A3 /* ViewController.swift */; };
 		3FD823DE2164EEAC003D7050 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3FD823DD2164EEAC003D7050 /* ThirstySoftRegular.otf */; };
 		3FD823E02164FFB7003D7050 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD823DF2164FFB7003D7050 /* UIColor.swift */; };
 		3FD824202167AE64003D7050 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8241F2167AE64003D7050 /* WeatherCell.swift */; };
@@ -42,7 +42,7 @@
 		3F5B46602161F9FE00119CA9 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		3F7154752169398C008B59DA /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		3F71547721694052008B59DA /* InfoRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRate.swift; sourceTree = "<group>"; };
-		3FD7271B216A7CD600DFB9A3 /* CurrencyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverter.swift; sourceTree = "<group>"; };
+		3FD7271D216A993D00DFB9A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3FD823DD2164EEAC003D7050 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		3FD823DF2164FFB7003D7050 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		3FD8241F2167AE64003D7050 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
@@ -76,11 +76,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F7FDD57216B94D200CF457F /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				3F7154752169398C008B59DA /* CurrencyService.swift */,
+				3F71547721694052008B59DA /* InfoRate.swift */,
+			);
+			path = Currency;
+			sourceTree = "<group>";
+		};
+		3F7FDD58216B94E900CF457F /* Translate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Translate;
+			sourceTree = "<group>";
+		};
+		3F7FDD59216B94F200CF457F /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				3FD824212167B00A003D7050 /* Weather.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
 		3FD823DC2163FBEC003D7050 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				3F5B465E2161561D00119CA9 /* UIView.swift */,
 				3FD823DF2164FFB7003D7050 /* UIColor.swift */,
+				3FD7271D216A993D00DFB9A3 /* ViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -138,10 +163,9 @@
 		3FF4FC69215A98FF007AE3E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3FD7271B216A7CD600DFB9A3 /* CurrencyConverter.swift */,
-				3F7154752169398C008B59DA /* CurrencyService.swift */,
-				3F71547721694052008B59DA /* InfoRate.swift */,
-				3FD824212167B00A003D7050 /* Weather.swift */,
+				3F7FDD57216B94D200CF457F /* Currency */,
+				3F7FDD58216B94E900CF457F /* Translate */,
+				3F7FDD59216B94F200CF457F /* Weather */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,8 +298,8 @@
 				3F5B46612161F9FE00119CA9 /* TranslateViewController.swift in Sources */,
 				3F367E38215CFEE1000EF3E2 /* WeatherViewController.swift in Sources */,
 				3F367E36215CF5E5000EF3E2 /* CurrencyViewController.swift in Sources */,
+				3FD7271E216A993D00DFB9A3 /* ViewController.swift in Sources */,
 				3F71547821694052008B59DA /* InfoRate.swift in Sources */,
-				3FD7271C216A7CD600DFB9A3 /* CurrencyConverter.swift in Sources */,
 				3FD824222167B00A003D7050 /* Weather.swift in Sources */,
 				3F5B465F2161561D00119CA9 /* UIView.swift in Sources */,
 				3FD824202167AE64003D7050 /* WeatherCell.swift in Sources */,

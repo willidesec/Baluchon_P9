@@ -10,23 +10,21 @@ import Foundation
 
 class CurrencyService {
     
-    static let shared = CurrencyService()
-    private init() {}
-    
-    private static let currencyUrl = "http://data.fixer.io/api/latest?access_key=b26f8bbf56a7e40f26c82f5ec87af7c8&base=EUR&symbols=USD"
-    private static let url = URL(string: currencyUrl)!
-    
+    // MARK: - Properties
+    private let currencyUrl = "http://data.fixer.io/api/latest?access_key=b26f8bbf56a7e40f26c82f5ec87af7c8&base=EUR&symbols=USD"
+    private lazy var url = URL(string: currencyUrl)!
     private var task: URLSessionDataTask?
+    private var currencySession: URLSession
     
-    private var currencySession = URLSession(configuration: .default)
-    
-    init(currencySession: URLSession) {
+    // MARK: - Init
+    init(currencySession: URLSession = URLSession(configuration: .default)) {
         self.currencySession = currencySession
     }
     
-    func getRate(callback: @escaping (Bool, InfoRate?) -> Void) {
+    // MARK: - Methods
+    func getRate(callback: @escaping (Bool, Float?) -> Void) {
         task?.cancel()
-        task = currencySession.dataTask(with: CurrencyService.url) { (data, response, error) in
+        task = currencySession.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
                     callback(false, nil)
@@ -36,11 +34,12 @@ class CurrencyService {
                     callback(false, nil)
                     return
                 }
-                guard let infoRateData = try? JSONDecoder().decode(InfoRate.self, from: data) else {
+                guard let responseJSON = try? JSONDecoder().decode(InfoRate.self, from: data),
+                    let usdRate = responseJSON.rates["USD"] else {
                     callback(false, nil)
                     return
                 }
-                callback(true, infoRateData)
+                callback(true, usdRate)
             }
         }
         task?.resume()
