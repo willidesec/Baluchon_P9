@@ -32,6 +32,11 @@ class CurrencyViewController: UIViewController {
     
     // MARK: - Action
     @IBAction func convertButtonDidTapped() {
+        convertCurrency()
+    }
+    
+    //MARK: - Methods
+    fileprivate func convertCurrency() {
         toggleActivityIndicator(shown: true)
         
         // Recover the amount to convert in the textField
@@ -46,14 +51,11 @@ class CurrencyViewController: UIViewController {
                 let stringAmount = String(format: "%.2f", convertedAmount)
                 self.usdTextField.text = stringAmount
             } else {
-                // Afficher un message d'erreur
-                print("error")
+                // Display an error
+                self.presentAlert(message: "Can't convert the currency")
             }
         }
     }
-    
-    //MARK: - Methods
-    
     func getAmount(textfield: UITextField) -> Float {
         guard let stringAmount = textfield.text else { return 0.0 }
         guard let amount = Float(stringAmount) else { return 0.0 }
