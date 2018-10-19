@@ -56,6 +56,7 @@ class CurrencyViewController: UIViewController {
             }
         }
     }
+    
     func getAmount(textfield: UITextField) -> Float {
         guard let stringAmount = textfield.text else { return 0.0 }
         guard let amount = Float(stringAmount) else { return 0.0 }
@@ -100,7 +101,7 @@ class CurrencyViewController: UIViewController {
         button.isEnabled = false
         button.backgroundColor = UIColor.darkGray
         button.setTitleColor(UIColor.gray, for: .disabled)
-//        button.setGradientBackground(colorOne: UIColor.grayThemeColor, colorTwo: UIColor.lightGrayThemeColor, cornerRadius: button.frame.height / 2)
+//        button.setGradientBackground(colorOne: UIColor.red, colorTwo: UIColor.green, cornerRadius: button.frame.height / 2)
     }
 
     
