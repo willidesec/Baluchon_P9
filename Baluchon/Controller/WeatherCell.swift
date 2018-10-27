@@ -15,13 +15,18 @@ class WeatherCell: UITableViewCell {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherInformationLabel: UILabel!
     
+    // MARK: - Properties
     var weather: Weather! {
         didSet {
             cityLabel.text = weather.city
+            cityLabel.adjustsFontSizeToFitWidth = true
             temperatureLabel.text = "\(weather.temperature)°C"
             weatherInformationLabel.text = weather.text
+            weatherInformationLabel.adjustsFontSizeToFitWidth = true
         }
     }
+    
+    // MARK: - ViewDidLoad
     
     // MARK: - Methods
 

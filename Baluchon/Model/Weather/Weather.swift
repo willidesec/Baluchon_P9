@@ -36,10 +36,22 @@ struct WeatherItem: Decodable {
 struct WeatherCondition: Decodable {
     let temp: String?
     let text: String?
+    let code: String?
 }
 
 struct Weather {
     let city: String
     let temperature: String
     let text: String
+    let code: WeatherCode
+    
 }
+
+enum WeatherCode {
+    case sunny, rain, cloudy, snow, cloud, wind, storm
+}
+
+
+
+
+

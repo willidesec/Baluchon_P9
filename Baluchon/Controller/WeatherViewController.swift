@@ -41,6 +41,23 @@ class WeatherViewController: UIViewController {
         weatherService.getWeather { (success, weather) in
             if success, let weather = weather {
                 self.weathers = weather
+                switch weather[0].code {
+                case .cloud:
+                    self.weatherImageView.image = UIImage(named: "Cloud")
+                case .cloudy:
+                    self.weatherImageView.image = UIImage(named: "Cloudy")
+                case .rain:
+                    self.weatherImageView.image = UIImage(named: "Rain")
+                case .snow:
+                    self.weatherImageView.image = UIImage(named: "Snow")
+                case .storm:
+                    self.weatherImageView.image = UIImage(named: "Storm")
+                case .sunny:
+                    self.weatherImageView.image = UIImage(named: "Sun")
+                case .wind:
+                    self.weatherImageView.image = UIImage(named: "Wind")
+                }
+
                 // Dispatch utile ou pas ??
                 DispatchQueue.main.async {
                     self.weatherTableView.reloadData()

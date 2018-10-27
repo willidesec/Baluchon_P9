@@ -41,16 +41,45 @@ class WeatherService {
                 guard let responseJSON = try? JSONDecoder().decode(WeatherInformations.self, from: data),
                     let weatherTemp = responseJSON.query.results.channel.item.condition.temp,
                     let weatherDescription = responseJSON.query.results.channel.item.condition.text,
-                    let weatherLocation = responseJSON.query.results.channel.location.city else {
+                    let weatherLocation = responseJSON.query.results.channel.location.city,
+                    let weatherCode = responseJSON.query.results.channel.item.condition.code else {
                         callback(false, nil)
                         print("error3")
                         return
                 }
+                
+                guard let codeInt = Int(weatherCode) else { return }
+                
+                var code: WeatherCode {
+                    let code = codeInt
+                    switch code {
+                    case 0, 2, 23, 24:
+                        return .wind
+                    case 26, 27, 28, 29, 30, 44:
+                        return .cloudy
+                    case 5, 6, 8, 9, 11, 12, 35, 40:
+                        return .rain
+                    case 20, 21, 22:
+                        return .cloud
+                    case 7, 13, 14, 15, 16, 17, 18, 19, 25, 41, 46:
+                        return .snow
+                    case 1, 3, 4, 37, 38, 39, 45, 47:
+                        return .storm
+                    case 32, 34, 36:
+                        return .sunny
+                    default:
+                        return .sunny
+                    }
+                    
+                }
+                
+                
                 print(weatherLocation)
                 print(weatherTemp)
                 print(weatherDescription)
+                print(weatherCode)
                 var weathers = [Weather]()
-                let weather = Weather(city: weatherLocation, temperature: weatherTemp, text: weatherDescription)
+                let weather = Weather(city: weatherLocation, temperature: weatherTemp, text: weatherDescription, code: code)
                 weathers.append(weather)
                 callback(true, weathers)
             }
