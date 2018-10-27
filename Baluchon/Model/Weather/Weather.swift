@@ -8,14 +8,38 @@
 
 import Foundation
 
+struct WeatherInformations: Decodable {
+    let query: WeatherQuery
+}
 
-class Weather {
-    
-    var city: String
-    var temperature: Int
-    
-    init(city: String, temperature: Int) {
-        self.city = city
-        self.temperature = temperature
-    }
+struct WeatherQuery: Decodable {
+    let results: WeatherResults
+}
+
+struct WeatherResults: Decodable {
+    let channel: WeatherChannel
+}
+
+struct WeatherChannel: Decodable {
+    let item: WeatherItem
+    let location: WeatherLocation
+}
+
+struct WeatherLocation: Decodable {
+    let city: String?
+}
+
+struct WeatherItem: Decodable {
+    let condition: WeatherCondition
+}
+
+struct WeatherCondition: Decodable {
+    let temp: String?
+    let text: String?
+}
+
+struct Weather {
+    let city: String
+    let temperature: String
+    let text: String
 }

@@ -13,8 +13,8 @@ class CurrencyService {
     // MARK: - Properties
     private let currencyUrl = "http://data.fixer.io/api/latest?access_key=b26f8bbf56a7e40f26c82f5ec87af7c8&base=EUR&symbols=USD"
     private lazy var url = URL(string: currencyUrl)!
-    private var task: URLSessionDataTask?
     private var currencySession: URLSession
+    private var task: URLSessionDataTask?
     
     // MARK: - Init
     init(currencySession: URLSession = URLSession(configuration: .default)) {

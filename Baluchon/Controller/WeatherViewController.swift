@@ -11,38 +11,45 @@ import UIKit
 class WeatherViewController: UIViewController {
     
     // MARK: - Properties
-    var weatherInformations: [Weather] = []
-
+    let weatherService = WeatherService()
+    var weathers: [Weather] = []
 
     // MARK: - Outlet
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var weatherTableView: UITableView!
+
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        weatherInformations = createArray()
         weatherTableView.delegate = self
         weatherTableView.dataSource = self
 
         setUpLayout()
         hideNavigationBar()
+        displayWeatherInformations()
+
     }
+    
+    // MARK: - Action
     
     // MARK: - Methods
     
-    func createArray() -> [Weather] {
-        var weathers: [Weather] = []
-        
-        let nyWeather = Weather(city: "New York", temperature: 28)
-        let lyonWeather = Weather(city: "Lyon", temperature: 21)
-        
-        weathers.append(nyWeather)
-        weathers.append(lyonWeather)
-        
-        return weathers
+    fileprivate func displayWeatherInformations() {
+        weatherService.getWeather { (success, weather) in
+            if success, let weather = weather {
+                self.weathers = weather
+                // Dispatch utile ou pas ??
+                DispatchQueue.main.async {
+                    self.weatherTableView.reloadData()
+                }
+                print("done")
+            } else {
+                print("error")
+            }
+        }
     }
     
     fileprivate func hideNavigationBar() {
@@ -65,17 +72,20 @@ class WeatherViewController: UIViewController {
     }
 }
 
+// MARK: - Extension
+
+// Extension for TableView
 extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weatherInformations.count
+        return weathers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let weatherInformation = weatherInformations[indexPath.row]
+        let weather = weathers[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell") as! WeatherCell
         
-        cell.weather = weatherInformation
+        cell.weather = weather
         
         return cell
     }

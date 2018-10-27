@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F2255E9217E2979007EC6E7 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2255E8217E2979007EC6E7 /* WeatherService.swift */; };
 		3F367E36215CF5E5000EF3E2 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F367E35215CF5E5000EF3E2 /* CurrencyViewController.swift */; };
 		3F367E38215CFEE1000EF3E2 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F367E37215CFEE1000EF3E2 /* WeatherViewController.swift */; };
 		3F5B465F2161561D00119CA9 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B465E2161561D00119CA9 /* UIView.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F2255E8217E2979007EC6E7 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		3F367E35215CF5E5000EF3E2 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		3F367E37215CFEE1000EF3E2 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		3F5B465E2161561D00119CA9 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		3F7FDD59216B94F200CF457F /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				3F2255E8217E2979007EC6E7 /* WeatherService.swift */,
 				3FD824212167B00A003D7050 /* Weather.swift */,
 			);
 			path = Weather;
@@ -311,6 +314,7 @@
 				3F367E36215CF5E5000EF3E2 /* CurrencyViewController.swift in Sources */,
 				3FD7271E216A993D00DFB9A3 /* ViewController.swift in Sources */,
 				3F71547821694052008B59DA /* InfoRate.swift in Sources */,
+				3F2255E9217E2979007EC6E7 /* WeatherService.swift in Sources */,
 				3FD824222167B00A003D7050 /* Weather.swift in Sources */,
 				3F5B465F2161561D00119CA9 /* UIView.swift in Sources */,
 				3FC653BF2178B037006E762A /* LanguageViewController.swift in Sources */,

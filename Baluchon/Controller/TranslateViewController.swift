@@ -42,9 +42,9 @@ class TranslateViewController: UIViewController {
         text = getTextToTranslate()
         translateService.getTraduction(of: text) { (success, translatedText) in
             if success, let translatedText = translatedText {
-                print(translatedText)
+                self.translatedTextView.text = translatedText
             } else {
-                print("error")
+                self.presentAlert(message: "Can't translate the text")
             }
         }
     }
