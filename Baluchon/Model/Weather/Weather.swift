@@ -13,11 +13,12 @@ struct WeatherInformations: Decodable {
 }
 
 struct WeatherQuery: Decodable {
+    let count: Int?
     let results: WeatherResults
 }
 
 struct WeatherResults: Decodable {
-    let channel: WeatherChannel
+    let channel: [WeatherChannel]
 }
 
 struct WeatherChannel: Decodable {
