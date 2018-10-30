@@ -41,15 +41,11 @@ class WeatherService {
                 }
                 guard let responseJSON = try? JSONDecoder().decode(WeatherInformations.self, from: data),
                     let count = responseJSON.query.count else {
-//                    let weatherTemp = responseJSON.query.results.channel.item.condition.temp,
-//                    let weatherDescription = responseJSON.query.results.channel.item.condition.text,
-//                    let weatherLocation = responseJSON.query.results.channel.location.city,
-//                    let weatherCode = responseJSON.query.results.channel.item.condition.code else {
                         callback(false, nil)
                         print("error3")
                         return
                 }
-                print(count)
+                
                 for i in 0..<count {
                     guard let weatherTemp = responseJSON.query.results.channel[i].item.condition.temp,
                     let weatherDescription = responseJSON.query.results.channel[i].item.condition.text,
@@ -86,8 +82,6 @@ class WeatherService {
                     let weather = Weather(city: weatherLocation, temperature: weatherTemp, text: weatherDescription, code: code)
                     self.weathers.append(weather)
                 }
-                print(self.weathers)
-
                 callback(true, self.weathers)
             }
         }

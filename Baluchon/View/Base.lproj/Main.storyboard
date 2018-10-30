@@ -360,7 +360,7 @@
                                 <rect key="frame" x="107" y="170" width="160" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sun" translatesAutoresizingMaskIntoConstraints="NO" id="3cd-h6-1xJ">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3cd-h6-1xJ">
                                         <rect key="frame" x="30" y="30" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -457,7 +457,7 @@
                     <tabBarItem key="tabBarItem" title="Currency" image="Currency Icon" id="u8c-HZ-G56"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="5Uq-D1-K2N">
-                        <rect key="frame" x="0.0" y="44" width="375" height="102"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -482,7 +482,7 @@
                     <tabBarItem key="tabBarItem" title="Translate" image="Translate Icon" id="ivs-gU-VVp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="Ban-Fp-DGt">
-                        <rect key="frame" x="0.0" y="44" width="375" height="102"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="101.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="44"/>
@@ -504,7 +504,7 @@
                     <tabBarItem key="tabBarItem" title="Weather" image="Weather Icon" id="5ir-Mo-Eb8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="dOD-Sc-anU">
-                        <rect key="frame" x="0.0" y="44" width="375" height="102"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -529,7 +529,6 @@
         <image name="European Flag" width="409.60000610351562" height="409.60000610351562"/>
         <image name="NY Background" width="2304" height="3456"/>
         <image name="Settings" width="32" height="32"/>
-        <image name="Sun" width="512" height="512"/>
         <image name="Translate Bg" width="4000" height="6000"/>
         <image name="Translate Icon" width="19.200000762939453" height="19.200000762939453"/>
         <image name="Weather Icon" width="19.200000762939453" height="19.200000762939453"/>
