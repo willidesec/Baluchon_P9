@@ -42,14 +42,10 @@ class WeatherViewController: UIViewController {
             if success, let weather = weather {
                 self.weathers = weather
                 self.changeWeatherImageView(weather)
-
-                // Dispatch utile ou pas ??
-                DispatchQueue.main.async {
-                    self.weatherTableView.reloadData()
-                }
-                print("done")
+                
+                self.weatherTableView.reloadData()
             } else {
-                print("error")
+                self.presentAlert(message: "Can't download weather informations")
             }
         }
     }
