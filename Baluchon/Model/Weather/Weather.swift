@@ -13,7 +13,7 @@ struct WeatherInformations: Decodable {
 }
 
 struct WeatherQuery: Decodable {
-    let count: Int?
+    let count: Int
     let results: WeatherResults
 }
 
@@ -27,7 +27,7 @@ struct WeatherChannel: Decodable {
 }
 
 struct WeatherLocation: Decodable {
-    let city: String?
+    let city: String
 }
 
 struct WeatherItem: Decodable {
@@ -35,22 +35,11 @@ struct WeatherItem: Decodable {
 }
 
 struct WeatherCondition: Decodable {
-    let temp: String?
-    let text: String?
-    let code: String?
-}
-
-struct Weather {
-    let city: String
-    let temperature: String
+    let temp: String
     let text: String
-    let code: WeatherCode
-    
+    let code: String
 }
 
-enum WeatherCode {
-    case sunny, rain, cloudy, snow, cloud, wind, storm
-}
 
 
 

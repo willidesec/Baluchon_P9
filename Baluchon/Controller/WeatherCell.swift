@@ -16,12 +16,12 @@ class WeatherCell: UITableViewCell {
     @IBOutlet weak var weatherInformationLabel: UILabel!
     
     // MARK: - Properties
-    var weather: Weather! {
+    var weather: WeatherChannel! {
         didSet {
-            cityLabel.text = weather.city
+            cityLabel.text = weather.location.city
             cityLabel.adjustsFontSizeToFitWidth = true
-            temperatureLabel.text = "\(weather.temperature)°C"
-            weatherInformationLabel.text = weather.text
+            temperatureLabel.text = "\(weather.item.condition.temp)°C"
+            weatherInformationLabel.text = weather.item.condition.text
             weatherInformationLabel.adjustsFontSizeToFitWidth = true
         }
     }

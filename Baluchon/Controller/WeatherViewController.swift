@@ -10,17 +10,19 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - PROPERTIES
     let weatherService = WeatherService()
-    var weathers: [Weather] = []
+    var weatherInfo: WeatherInformations?
+    var cities = ["New York", "Lyon"]
 
-    // MARK: - Outlet
+    // MARK: - OUTLET
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var weatherTableView: UITableView!
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    // MARK: - ViewDidLoad
+    
+    // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,15 +35,19 @@ class WeatherViewController: UIViewController {
 
     }
     
-    // MARK: - Action
+    // MARK: - ACTION
     
-    // MARK: - Methods
+    // MARK: - METHODS
     
     fileprivate func displayWeatherInformations() {
-        weatherService.getWeather { (success, weather) in
-            if success, let weather = weather {
-                self.weathers = weather
-                self.changeWeatherImageView(weather)
+        toggleActivityIndicator(shown: true)
+        weatherService.getWeather(for: cities) { (success, weather) in
+            self.toggleActivityIndicator(shown: false)
+            if success {
+                self.weatherInfo = weather
+                guard let code = self.weatherInfo?.query.results.channel[0].item.condition.code else { return }
+                let imageString = CodeConverter.convertWeatherCodeInImage(weatherCode: code)
+                self.weatherImageView.image = UIImage(named: imageString)
                 
                 self.weatherTableView.reloadData()
             } else {
@@ -50,23 +56,9 @@ class WeatherViewController: UIViewController {
         }
     }
     
-    fileprivate func changeWeatherImageView(_ weather: [Weather]) {
-        switch weather[0].code {
-        case .cloud:
-            self.weatherImageView.image = UIImage(named: "Cloud")
-        case .cloudy:
-            self.weatherImageView.image = UIImage(named: "Cloudy")
-        case .rain:
-            self.weatherImageView.image = UIImage(named: "Rain")
-        case .snow:
-            self.weatherImageView.image = UIImage(named: "Snow")
-        case .storm:
-            self.weatherImageView.image = UIImage(named: "Storm")
-        case .sunny:
-            self.weatherImageView.image = UIImage(named: "Sun")
-        case .wind:
-            self.weatherImageView.image = UIImage(named: "Wind")
-        }
+    private func toggleActivityIndicator(shown: Bool) {
+        weatherTableView.isHidden = shown
+        activityIndicator.isHidden = !shown
     }
     
     fileprivate func hideNavigationBar() {
@@ -89,20 +81,21 @@ class WeatherViewController: UIViewController {
     }
 }
 
-// MARK: - Extension
+// MARK: - EXTENSION
 
 // Extension for TableView
 extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weathers.count
+        guard let numberOfRow = weatherInfo?.query.count else { return 0}
+        return numberOfRow
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let weather = weathers[indexPath.row]
+        let channel = weatherInfo?.query.results.channel[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell") as! WeatherCell
         
-        cell.weather = weather
+        cell.weather = channel
         
         return cell
     }

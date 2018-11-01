@@ -10,21 +10,20 @@ import Foundation
 
 class WeatherService {
     
-    // MARK: - Properties
+    // MARK: - PROPERTIES
     private let weatherUrl = "https://query.yahooapis.com/v1/public/yql?"
     private lazy var url = URL(string: weatherUrl)!
     private var weatherSession: URLSession
     private var task: URLSessionDataTask?
-    var weathers = [Weather]()
     
-    // MARK: - Init
+    // MARK: - INIT
     init(weatherSession: URLSession = URLSession(configuration: .default)) {
         self.weatherSession = weatherSession
     }
     
-    // MARK: - Methods
-    func getWeather(callback: @escaping (Bool, [Weather]?) -> Void) {
-        let request = createWeatherRequest()
+    // MARK: - METHODS
+    func getWeather(for cities: [String], callback: @escaping (Bool, WeatherInformations?) -> Void) {
+        let request = createWeatherRequest(for: cities)
         
         task?.cancel()
         task = weatherSession.dataTask(with: request) { (data, response, error) in
@@ -39,60 +38,33 @@ class WeatherService {
                     print("error2")
                     return
                 }
-                guard let responseJSON = try? JSONDecoder().decode(WeatherInformations.self, from: data),
-                    let count = responseJSON.query.count else {
+                guard let responseJSON = try? JSONDecoder().decode(WeatherInformations.self, from: data) else {
                         callback(false, nil)
                         print("error3")
                         return
                 }
-                
-                for i in 0..<count {
-                    guard let weatherTemp = responseJSON.query.results.channel[i].item.condition.temp,
-                    let weatherDescription = responseJSON.query.results.channel[i].item.condition.text,
-                    let weatherLocation = responseJSON.query.results.channel[i].location.city,
-                    let weatherCode = responseJSON.query.results.channel[i].item.condition.code else {
-                        callback(false, nil)
-                        print("error3")
-                        return
-                    }
-                    guard let codeInt = Int(weatherCode) else { return }
-
-                    var code: WeatherCode {
-                        let code = codeInt
-                        switch code {
-                        case 0, 2, 23, 24:
-                            return .wind
-                        case 26, 27, 28, 29, 30, 44:
-                            return .cloudy
-                        case 5, 6, 8, 9, 11, 12, 35, 40:
-                            return .rain
-                        case 20, 21, 22:
-                            return .cloud
-                        case 7, 13, 14, 15, 16, 17, 18, 19, 25, 41, 46:
-                            return .snow
-                        case 1, 3, 4, 37, 38, 39, 45, 47:
-                            return .storm
-                        case 32, 34, 36:
-                            return .sunny
-                        default:
-                            return .sunny
-                        }
-                    }
-                    
-                    let weather = Weather(city: weatherLocation, temperature: weatherTemp, text: weatherDescription, code: code)
-                    self.weathers.append(weather)
-                }
-                callback(true, self.weathers)
+                let weather = responseJSON
+                callback(true, weather)
             }
         }
         task?.resume()
     }
     
-    private func createWeatherRequest() -> URLRequest {
+    private func createWeatherRequest(for cities: [String]) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
-        let body = "q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%20in%20(%22lyon%22%2C%20%22lille%22))%20and%20u%3D%22c%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
+        var weatherCities = ""
+        for city in cities {
+            if city == cities.last {
+                weatherCities += "'\(city)'"
+            } else {
+                weatherCities += "'\(city)', "
+            }
+        }
+        let parameters = "select item.condition, location.city from weather.forecast where woeid in (select woeid from geo.places(1) where text in (\(weatherCities))) and u='c'"
+        
+        let body = "q=\(parameters)&format=json"
         request.httpBody = body.data(using: .utf8)
         return request
     }
