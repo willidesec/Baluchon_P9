@@ -36,6 +36,12 @@ class WeatherViewController: UIViewController {
     }
     
     // MARK: - ACTION
+    @IBAction func addButtonDidTapped(_ sender: Any) {
+        let addCityVC = storyboard?.instantiateViewController(withIdentifier: "AddCityScreen") as! AddCityViewController
+        addCityVC.newCityDelegate = self
+        present(addCityVC, animated: true, completion: nil)
+    }
+    
     
     // MARK: - METHODS
     
@@ -98,6 +104,19 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         cell.weather = channel
         
         return cell
+    }
+}
+
+// Extension for protocol Add New City
+extension WeatherViewController: AddNewCityDelegate {
+    func addNewCity(_ name: String) {
+        if !cities.contains(name){
+            cities.append(name)
+            print(cities)
+            displayWeatherInformations()
+        } else {
+            presentAlert(message: "You already have added (\(name)")
+        }
     }
     
     
