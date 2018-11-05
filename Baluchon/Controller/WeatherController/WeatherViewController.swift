@@ -38,6 +38,7 @@ class WeatherViewController: UIViewController {
     // MARK: - ACTION
     @IBAction func addButtonDidTapped(_ sender: Any) {
         let addCityVC = storyboard?.instantiateViewController(withIdentifier: "AddCityScreen") as! AddCityViewController
+        addCityVC.cities = cities
         addCityVC.newCityDelegate = self
         present(addCityVC, animated: true, completion: nil)
     }
@@ -51,15 +52,18 @@ class WeatherViewController: UIViewController {
             self.toggleActivityIndicator(shown: false)
             if success {
                 self.weatherInfo = weather
-                guard let code = self.weatherInfo?.query.results.channel[0].item.condition.code else { return }
-                let imageString = CodeConverter.convertWeatherCodeInImage(weatherCode: code)
-                self.weatherImageView.image = UIImage(named: imageString)
-                
+                guard let imageCode = self.weatherInfo?.query.results.channel[0].item.condition.code else { return }
+                self.changeWeatherImage(imageCode)
                 self.weatherTableView.reloadData()
             } else {
                 self.presentAlert(message: "Can't download weather informations")
             }
         }
+    }
+    
+    fileprivate func changeWeatherImage(_ code: String) {
+        let imageString = CodeConverter.convertWeatherCodeInImage(weatherCode: code)
+        self.weatherImageView.image = UIImage(named: imageString)
     }
     
     private func toggleActivityIndicator(shown: Bool) {
@@ -105,18 +109,19 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let imageCode = weatherInfo?.query.results.channel[indexPath.row].item.condition.code else { return }
+        changeWeatherImage(imageCode)
+        
+    }
 }
 
 // Extension for protocol Add New City
 extension WeatherViewController: AddNewCityDelegate {
     func addNewCity(_ name: String) {
-        if !cities.contains(name){
             cities.append(name)
-            print(cities)
             displayWeatherInformations()
-        } else {
-            presentAlert(message: "You already have added (\(name)")
-        }
     }
     
     

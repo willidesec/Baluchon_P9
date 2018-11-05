@@ -16,6 +16,7 @@ class AddCityViewController: UIViewController {
     
     // MARK: - PROPERTIES
     var newCityDelegate: AddNewCityDelegate!
+    var cities: [String]!
     
     // MARK: - OUTLET
     @IBOutlet weak var cityTextField: UITextField!
@@ -29,8 +30,7 @@ class AddCityViewController: UIViewController {
     // MARK: - ACTION
     @IBAction func addButtonDidTapped() {
         let cityName = getCityName()
-        newCityDelegate.addNewCity(cityName)
-        dismiss(animated: true, completion: nil)
+        checkIfTableContainsCityName(cityName)
     }
     
     
@@ -42,5 +42,15 @@ class AddCityViewController: UIViewController {
     func getCityName() -> String {
         guard let cityName = cityTextField.text else { return "" }
         return cityName
+    }
+    
+    func checkIfTableContainsCityName(_ cityName: String) {
+        let capitalizedName = cityName.capitalized
+        if !cities.contains(capitalizedName) {
+            newCityDelegate.addNewCity(capitalizedName)
+            dismiss(animated: true, completion: nil)
+        } else {
+            presentAlert(message: "You already have added \(capitalizedName)")
+        }
     }
 }

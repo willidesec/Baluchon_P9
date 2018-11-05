@@ -10,12 +10,12 @@ import UIKit
 
 class WeatherCell: UITableViewCell {
 
-    // MARK: - Outlet
+    // MARK: - OUTLET
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherInformationLabel: UILabel!
     
-    // MARK: - Properties
+    // MARK: - PROPERTIES
     var weather: WeatherChannel! {
         didSet {
             cityLabel.text = weather.location.city
