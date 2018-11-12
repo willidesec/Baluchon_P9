@@ -1,0 +1,37 @@
+{
+    "query": {
+        "count": 2,
+        "created": "2018-11-09T10:08:25Z",
+        "lang": "en-US",
+        "results": {
+            "channel": [
+                {
+                    "location": {
+                        "city": "New York"
+                    },
+                    "item": {
+                        "condition": {
+                            "code": "33",
+                            "date": "Fri, 09 Nov 2018 04:00 AM EST",
+                            "temp": "3",
+                            "text": "Mostly Clear"
+                        }
+                    }
+                },
+                {
+                    "location": {
+                        "city": "Lyon"
+                    },
+                    "item": {
+                        "condition": {
+                            "code": "26",
+                            "date": "Fri, 09 Nov 2018 10:00 AM CET",
+                            "temp": "12",
+                            "text": "Cloudy"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -95,11 +95,13 @@ class WeatherViewController: UIViewController {
 
 // Extension for TableView
 extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
+    // Display the number of row
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let numberOfRow = weatherInfo?.query.count else { return 0}
         return numberOfRow
     }
     
+    // Display the data in the cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let channel = weatherInfo?.query.results.channel[indexPath.row]
         
@@ -110,10 +112,19 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    // Change the weatherImage when taping on the cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let imageCode = weatherInfo?.query.results.channel[indexPath.row].item.condition.code else { return }
         changeWeatherImage(imageCode)
         
+    }
+    
+    // Delete a row
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            cities.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }
 

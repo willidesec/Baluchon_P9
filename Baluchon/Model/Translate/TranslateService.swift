@@ -54,9 +54,7 @@ class TranslateService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
-//        let encodingText = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-//        print(encodingText)
-        let body = "key=AIzaSyD-pTMf5vbKMn4hnl5RUr2gblSW68_sIZs&q=\(text)&target=en&source=fr&format=text"
+        let body = "key=AIzaSyD-pTMf5vbKMn4hnl5RUr2gblSW68_sIZs&q=\(text)&target=en&format=text"
         request.httpBody = body.data(using: .utf8)
         
         return request

@@ -17,7 +17,7 @@ struct Constants {
         static let cloud = ["20","21","22"]
         static let snow = ["7","13","14","15","16","17","18","19","25","41","46"]
         static let storm = ["1","3","4","37","38","39","45","47"]
-        static let sunny = ["32","34","36"]
+        static let sunny = ["31", "32","33", "34","36"]
     }
     
 }
