@@ -18,7 +18,7 @@ struct WeatherQuery: Decodable {
 }
 
 struct WeatherResults: Decodable {
-    let channel: [WeatherChannel]
+    var channel: [WeatherChannel]
 }
 
 struct WeatherChannel: Decodable {

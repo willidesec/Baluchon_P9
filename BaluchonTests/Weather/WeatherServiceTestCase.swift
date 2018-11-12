@@ -83,7 +83,7 @@ class WeatherServiceTestCase: XCTestCase {
     func testGetWeatherShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
         // Given
         let weatherService = WeatherService(weatherSession: URLSessionFake(data: WeatherFakeResponseData.correctData, response: WeatherFakeResponseData.responseOK, error: nil))
-        let countries = ["New York"]
+        let countries = ["New York", "Lyon"]
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         weatherService.getWeather(for: countries) { (success, weather) in

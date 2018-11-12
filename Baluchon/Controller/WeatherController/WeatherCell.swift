@@ -25,7 +25,5 @@ class WeatherCell: UITableViewCell {
             weatherInformationLabel.adjustsFontSizeToFitWidth = true
         }
     }
-        
-    // MARK: - Methods
-
+    
 }

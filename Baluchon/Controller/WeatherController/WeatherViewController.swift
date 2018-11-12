@@ -29,7 +29,6 @@ class WeatherViewController: UIViewController {
         weatherTableView.delegate = self
         weatherTableView.dataSource = self
 
-        setUpLayout()
         hideNavigationBar()
         displayWeatherInformations()
 
@@ -81,13 +80,17 @@ class WeatherViewController: UIViewController {
     // Change the layout of the View Weather
     fileprivate func setUpLayout() {
         // Rounded View
-        circleView.layer.cornerRadius = circleView.frame.width / 2
-        
+        circleView.layer.cornerRadius = circleView.frame.height / 2
         // Circle Shadow
         circleView.layer.shadowOffset = CGSize(width: 2, height: 2)
         circleView.layer.shadowRadius = 2
         circleView.layer.shadowOpacity = 0.3
                 
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setUpLayout()
     }
 }
 
@@ -97,7 +100,7 @@ class WeatherViewController: UIViewController {
 extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     // Display the number of row
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let numberOfRow = weatherInfo?.query.count else { return 0}
+        guard let numberOfRow = weatherInfo?.query.count else { return 0 }
         return numberOfRow
     }
     
@@ -123,6 +126,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             cities.remove(at: indexPath.row)
+//            weatherInfo?.query.results.channel.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
