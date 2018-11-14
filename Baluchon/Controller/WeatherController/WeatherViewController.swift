@@ -21,7 +21,6 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var weatherTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
     // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,9 +84,10 @@ class WeatherViewController: UIViewController {
         circleView.layer.shadowOffset = CGSize(width: 2, height: 2)
         circleView.layer.shadowRadius = 2
         circleView.layer.shadowOpacity = 0.3
-                
+        
     }
     
+    // Setup the layoiut of the imageView correctly
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setUpLayout()

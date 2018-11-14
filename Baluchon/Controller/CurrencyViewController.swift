@@ -22,12 +22,14 @@ class CurrencyViewController: UIViewController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        convertButton.layer.cornerRadius = convertButton.frame.height / 2
         setupAddTargetIsNotEmptyTextFields()
         
         hideNavigationBar()
-
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        convertButton.layer.cornerRadius = convertButton.frame.height / 2
     }
     
     // MARK: - Action
