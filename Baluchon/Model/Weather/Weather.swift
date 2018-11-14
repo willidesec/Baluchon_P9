@@ -9,12 +9,12 @@
 import Foundation
 
 struct WeatherInformations: Decodable {
-    let query: WeatherQuery
+    var query: WeatherQuery
 }
 
 struct WeatherQuery: Decodable {
-    let count: Int
-    let results: WeatherResults
+    var count: Int
+    var results: WeatherResults
 }
 
 struct WeatherResults: Decodable {

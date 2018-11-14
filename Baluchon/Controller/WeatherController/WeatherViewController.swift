@@ -126,7 +126,8 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             cities.remove(at: indexPath.row)
-//            weatherInfo?.query.results.channel.remove(at: indexPath.row)
+            weatherInfo?.query.results.channel.remove(at: indexPath.row)
+            weatherInfo?.query.count -= 1
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
