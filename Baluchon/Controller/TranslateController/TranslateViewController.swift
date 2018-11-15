@@ -15,17 +15,17 @@ class TranslateViewController: UIViewController {
     var text = ""
 
     // MARK: - Outlet
-    @IBOutlet weak var bodyView: UIView!
-    @IBOutlet weak var blurEffect: UIVisualEffectView!
-    @IBOutlet weak var translatedTextView: UITextView!
     @IBOutlet weak var textToTranslateTextView: UITextView!
+    
+    @IBOutlet weak var translatedTextView: UITextView!
     @IBOutlet weak var translateButton: UIButton!
+    
+    
     
 
     // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCornerToBlur()
         hideNavigationBar()
     }
     
@@ -67,17 +67,21 @@ class TranslateViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
-    fileprivate func setCornerToBlur() {
-        bodyView.layer.cornerRadius = 10
-        blurEffect.layer.cornerRadius = 10
-        blurEffect.clipsToBounds = true
+}
+
+extension TranslateViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Tap here to enter text" {
+            textView.text = ""
+        }
+        textView.becomeFirstResponder()
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "Tap here to enter text"
+        }
+        textView.resignFirstResponder()
     }
 }
 
-extension TranslateViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        translateText()
-        return true
-    }
-}
