@@ -16,6 +16,8 @@ enum WeatherCode: String {
     case cloud
     case wind
     case storm
+    case night
+    case cloudyNight
 }
 
 class CodeConverter {
@@ -27,7 +29,9 @@ class CodeConverter {
          (WeatherCode.snow, Constants.YahooWeatherCode.snow),
          (WeatherCode.cloud, Constants.YahooWeatherCode.cloud),
          (WeatherCode.wind, Constants.YahooWeatherCode.wind),
-         (WeatherCode.storm, Constants.YahooWeatherCode.storm)]
+         (WeatherCode.storm, Constants.YahooWeatherCode.storm),
+         (WeatherCode.night, Constants.YahooWeatherCode.night),
+         (WeatherCode.cloudyNight, Constants.YahooWeatherCode.cloudyNight)]
     
     
     static func convertWeatherCodeInImage(weatherCode: String) -> String {

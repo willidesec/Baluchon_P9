@@ -23,4 +23,9 @@ extension UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
     
+    // Add corner radius to a button
+    func addCornerRadius(to button: UIButton) {
+        button.layer.cornerRadius = button.frame.height / 2
+    }
+    
 }

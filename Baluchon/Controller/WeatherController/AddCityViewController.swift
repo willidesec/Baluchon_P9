@@ -27,6 +27,10 @@ class AddCityViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidLayoutSubviews() {
+        addCornerRadius()
+    }
+    
     // MARK: - ACTION
     @IBAction func addButtonDidTapped() {
         let cityName = getCityName()
@@ -52,5 +56,13 @@ class AddCityViewController: UIViewController {
         } else {
             presentAlert(message: "You already have added \(capitalizedName)")
         }
+    }
+    
+    
+}
+
+extension AddCityViewController {
+    private func addCornerRadius() {
+        addButton.layer.cornerRadius = addButton.frame.height / 2
     }
 }

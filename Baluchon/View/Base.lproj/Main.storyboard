@@ -57,7 +57,7 @@
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tI5-s2-d1d">
                                                     <rect key="frame" x="0.0" y="209.66666666666666" width="295" height="45"/>
-                                                    <color key="backgroundColor" red="0.49803921569999998" green="0.59215686270000001" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.83921568629999999" green="0.38431372549999998" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="45" id="zb5-Qf-cGn"/>
                                                     </constraints>
@@ -119,39 +119,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rRE-um-0Wn"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Translate" id="T3M-Ah-4mv">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="Settings" id="yJ6-ow-EIU">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="9dZ-KP-Dy5" kind="show" id="96p-dr-LGY"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Translate" id="T3M-Ah-4mv"/>
                     <connections>
                         <outlet property="blurEffect" destination="Yec-bf-USg" id="UJH-Oe-31q"/>
                         <outlet property="bodyView" destination="690-Y4-81Z" id="RkB-Zx-zBS"/>
                         <outlet property="textToTranslateTextView" destination="uOj-gK-S9n" id="NtR-fq-DYX"/>
+                        <outlet property="translateButton" destination="tI5-s2-d1d" id="p4a-l4-et0"/>
                         <outlet property="translatedTextView" destination="GOT-Y6-1dr" id="1Uw-ya-LTj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4r0-QY-m5r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="500" y="340.64039408866995"/>
-        </scene>
-        <!--Language View Controller-->
-        <scene sceneID="dNZ-s5-PR7">
-            <objects>
-                <viewController id="9dZ-KP-Dy5" customClass="LanguageViewController" customModule="Baluchon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4IS-YS-enm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="fGY-o0-aBO"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z2l-Jp-wv0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1378" y="341"/>
         </scene>
         <!--Currency-->
         <scene sceneID="KT7-Jt-65q">
@@ -358,10 +337,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="364.66666666666669"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7d-g5-CfY">
-                                <rect key="frame" x="107.33333333333333" y="170.33333333333331" width="160.33333333333337" height="160.33333333333331"/>
+                                <rect key="frame" x="107.66666666666667" y="171" width="159.66666666666663" height="159.66666666666663"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3cd-h6-1xJ">
-                                        <rect key="frame" x="30.000000000000021" y="29.999999999999993" width="100.33333333333331" height="100.33333333333331"/>
+                                        <rect key="frame" x="29.999999999999979" y="30.000000000000007" width="99.666666666666686" height="99.666666666666686"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -603,7 +582,7 @@
                     <tabBarItem key="tabBarItem" title="Translate" image="Translate Icon" id="ivs-gU-VVp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="Ban-Fp-DGt">
-                        <rect key="frame" x="0.0" y="44" width="375" height="102"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="44"/>
@@ -625,7 +604,7 @@
                     <tabBarItem key="tabBarItem" title="Weather" image="Weather Icon" id="5ir-Mo-Eb8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="dOD-Sc-anU">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -649,7 +628,6 @@
         <image name="Currency Icon" width="19.200000762939453" height="19.200000762939453"/>
         <image name="European Flag" width="409.60000610351562" height="409.60000610351562"/>
         <image name="NY Background" width="2304" height="3456"/>
-        <image name="Settings" width="32" height="32"/>
         <image name="Translate Bg" width="4000" height="6000"/>
         <image name="Translate Icon" width="19.200000762939453" height="19.200000762939453"/>
         <image name="Weather Icon" width="19.200000762939453" height="19.200000762939453"/>

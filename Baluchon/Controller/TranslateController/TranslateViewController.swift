@@ -10,7 +10,7 @@ import UIKit
 
 class TranslateViewController: UIViewController {
     
-    //MARK: - Properties
+    //MARK: - PROPERTIES
     let translateService = TranslateService()
     var text = ""
 
@@ -19,24 +19,27 @@ class TranslateViewController: UIViewController {
     @IBOutlet weak var blurEffect: UIVisualEffectView!
     @IBOutlet weak var translatedTextView: UITextView!
     @IBOutlet weak var textToTranslateTextView: UITextView!
+    @IBOutlet weak var translateButton: UIButton!
     
 
-    // MARK: - ViewDidLoad
+    // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setCornerToBlur()
-        
         hideNavigationBar()
     }
     
-    //MARK: - Action
+    override func viewDidLayoutSubviews() {
+        addCornerRadius(to: translateButton)
+    }
+    
+    //MARK: - ACTION
     @IBAction func translateButtonDidTapped() {
         translateText()
     }
     
     
-    // MARK: - Methods
+    // MARK: - METHODS
     
     fileprivate func translateText() {
         text = getTextToTranslate()
@@ -68,5 +71,13 @@ class TranslateViewController: UIViewController {
         bodyView.layer.cornerRadius = 10
         blurEffect.layer.cornerRadius = 10
         blurEffect.clipsToBounds = true
+    }
+}
+
+extension TranslateViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        translateText()
+        return true
     }
 }

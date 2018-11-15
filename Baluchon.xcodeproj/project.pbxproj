@@ -27,7 +27,6 @@
 		3F71547821694052008B59DA /* InfoRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F71547721694052008B59DA /* InfoRate.swift */; };
 		3F8365B52170F43200E8796E /* TranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8365B42170F43200E8796E /* TranslateService.swift */; };
 		3F8365B72170F55100E8796E /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8365B62170F55100E8796E /* Translate.swift */; };
-		3FC653BF2178B037006E762A /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC653BE2178B037006E762A /* LanguageViewController.swift */; };
 		3FD7271E216A993D00DFB9A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD7271D216A993D00DFB9A3 /* ViewController.swift */; };
 		3FD823DE2164EEAC003D7050 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3FD823DD2164EEAC003D7050 /* ThirstySoftRegular.otf */; };
 		3FD823E02164FFB7003D7050 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD823DF2164FFB7003D7050 /* UIColor.swift */; };
@@ -72,7 +71,6 @@
 		3F71547721694052008B59DA /* InfoRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRate.swift; sourceTree = "<group>"; };
 		3F8365B42170F43200E8796E /* TranslateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateService.swift; sourceTree = "<group>"; };
 		3F8365B62170F55100E8796E /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
-		3FC653BE2178B037006E762A /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		3FD7271D216A993D00DFB9A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3FD823DD2164EEAC003D7050 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		3FD823DF2164FFB7003D7050 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 		3F207B21218B621900C2C03D /* TranslateController */ = {
 			isa = PBXGroup;
 			children = (
-				3FC653BE2178B037006E762A /* LanguageViewController.swift */,
 				3F5B46602161F9FE00119CA9 /* TranslateViewController.swift */,
 			);
 			path = TranslateController;
@@ -408,7 +405,6 @@
 				3F2255E9217E2979007EC6E7 /* WeatherService.swift in Sources */,
 				3FD824222167B00A003D7050 /* Weather.swift in Sources */,
 				3F5B465F2161561D00119CA9 /* UIView.swift in Sources */,
-				3FC653BF2178B037006E762A /* LanguageViewController.swift in Sources */,
 				3FD824202167AE64003D7050 /* WeatherCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

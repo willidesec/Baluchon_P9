@@ -23,13 +23,12 @@ class CurrencyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAddTargetIsNotEmptyTextFields()
-        
         hideNavigationBar()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        convertButton.layer.cornerRadius = convertButton.frame.height / 2
+        addCornerRadius(to: convertButton)
     }
     
     // MARK: - Action
@@ -95,7 +94,7 @@ class CurrencyViewController: UIViewController {
     
     fileprivate func activateButton(button: UIButton) {
         button.isEnabled = true
-        button.backgroundColor = UIColor.blueThemeColor
+        button.backgroundColor = UIColor.redThemeColor
 //        button.setGradientBackground(colorOne: UIColor.blueThemeColor, colorTwo: UIColor.lightBlueThemeColor, cornerRadius: button.frame.height / 2)
     }
     

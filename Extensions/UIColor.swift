@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 extension UIColor {
+    static let redThemeColor: UIColor = UIColor(red: 214/255, green: 98/255, blue: 88/255, alpha: 1)
     static let grayThemeColor: UIColor = UIColor(red: 142/255, green: 158/255, blue: 171/255, alpha: 1)
     static let lightGrayThemeColor: UIColor = UIColor(red: 238/255, green: 242/255, blue: 243/255, alpha: 1)
     static let blueThemeColor: UIColor = UIColor(red: 33/255, green: 147/255, blue: 176/255, alpha: 1)
