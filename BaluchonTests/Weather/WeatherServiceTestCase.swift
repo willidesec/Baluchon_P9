@@ -18,7 +18,7 @@ class WeatherServiceTestCase: XCTestCase {
     // Test if there is an error
     func testGetWeatherShouldPostFailedCallbackIfError() {
         // Given
-        let weatherService = WeatherService(weatherSession: URLSessionFake(data: nil, response: nil, error: TranslateFakeResponseData.error))
+        let weatherService = WeatherService(weatherSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error))
         let countries = ["New York"]
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -50,7 +50,7 @@ class WeatherServiceTestCase: XCTestCase {
     // Test if there is incorrect response
     func testGetWeatherShouldPostFailedCallbackIfIncorrectResponse() {
         // Given
-        let weatherService = WeatherService(weatherSession: URLSessionFake(data: WeatherFakeResponseData.correctData, response: WeatherFakeResponseData.responseKO, error: nil))
+        let weatherService = WeatherService(weatherSession: URLSessionFake(data: FakeResponseData.weatherCorrectData, response: FakeResponseData.responseKO, error: nil))
         let countries = ["New York"]
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -66,7 +66,7 @@ class WeatherServiceTestCase: XCTestCase {
     // Test if there is incorrect data
     func testGetWeatherShouldPostFailedCallbackIfIncorrectData() {
         // Given
-        let weatherService = WeatherService(weatherSession: URLSessionFake(data: WeatherFakeResponseData.weatherInccorectData, response: WeatherFakeResponseData.responseOK, error: nil))
+        let weatherService = WeatherService(weatherSession: URLSessionFake(data: FakeResponseData.inccorectData, response: FakeResponseData.responseOK, error: nil))
         let countries = ["New York"]
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -82,7 +82,7 @@ class WeatherServiceTestCase: XCTestCase {
     // Test if there is correct data and response and no error
     func testGetWeatherShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
         // Given
-        let weatherService = WeatherService(weatherSession: URLSessionFake(data: WeatherFakeResponseData.correctData, response: WeatherFakeResponseData.responseOK, error: nil))
+        let weatherService = WeatherService(weatherSession: URLSessionFake(data: FakeResponseData.weatherCorrectData, response: FakeResponseData.responseOK, error: nil))
         let countries = ["New York", "Lyon"]
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -104,7 +104,7 @@ class WeatherServiceTestCase: XCTestCase {
             XCTAssertEqual(description, weather!.query.results.channel[0].item.condition.text)
             
             let imageString = CodeConverter.convertWeatherCodeInImage(weatherCode: weather!.query.results.channel[0].item.condition.code)
-            XCTAssertEqual(imageString, "sunny")
+            XCTAssertEqual(imageString, "night")
             
             expectation.fulfill()
         }

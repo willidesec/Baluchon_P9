@@ -18,7 +18,7 @@ class CurrencyServiceTestCase: XCTestCase {
     // Test if there is an error
     func testGetRateShouldPostFailedCallbackIfError() {
         // Given
-        let currencyService = CurrencyService(currencySession: URLSessionFake(data: nil, response: nil, error: CurrencyFakeResponseData.error))
+        let currencyService = CurrencyService(currencySession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error))
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getRate { (success, rate) in
@@ -48,7 +48,7 @@ class CurrencyServiceTestCase: XCTestCase {
     // Test if there an incorrect response
     func testGetRateShouldPostFailedCallbackIfIncorrectResponse() {
         // Given
-        let currencyService = CurrencyService(currencySession: URLSessionFake(data: CurrencyFakeResponseData.correctData, response: CurrencyFakeResponseData.responseKO, error: nil))
+        let currencyService = CurrencyService(currencySession: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseKO, error: nil))
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getRate { (success, rate) in
@@ -63,7 +63,7 @@ class CurrencyServiceTestCase: XCTestCase {
     // Test if there is incorrect data
     func testGetRateShouldPostFailedCallbackIfIncorrectData() {
         // Given
-        let currencyService = CurrencyService(currencySession: URLSessionFake(data: CurrencyFakeResponseData.currencyInccorectData, response: CurrencyFakeResponseData.responseOK, error: nil))
+        let currencyService = CurrencyService(currencySession: URLSessionFake(data: FakeResponseData.inccorectData, response: FakeResponseData.responseOK, error: nil))
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getRate { (success, rate) in
@@ -78,7 +78,7 @@ class CurrencyServiceTestCase: XCTestCase {
     // Test if there is response and data correct and no error
     func testGetRateShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
         // Given
-        let currencyService = CurrencyService(currencySession: URLSessionFake(data: CurrencyFakeResponseData.correctData, response: CurrencyFakeResponseData.responseOK, error: nil))
+        let currencyService = CurrencyService(currencySession: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseOK, error: nil))
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getRate { (success, rate) in

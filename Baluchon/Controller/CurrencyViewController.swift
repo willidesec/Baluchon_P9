@@ -10,7 +10,7 @@ import UIKit
 
 class CurrencyViewController: UIViewController {
     
-    //MARK: - Properties
+    //MARK: - PROPERTIES
     let currencyService = CurrencyService()
     
     // MARK: - Outlet
@@ -19,7 +19,7 @@ class CurrencyViewController: UIViewController {
     @IBOutlet weak var eurTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    // MARK: - ViewDidLoad
+    // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAddTargetIsNotEmptyTextFields()
@@ -31,12 +31,12 @@ class CurrencyViewController: UIViewController {
         addCornerRadius(to: convertButton)
     }
     
-    // MARK: - Action
+    // MARK: - ACTION
     @IBAction func convertButtonDidTapped() {
         convertCurrency()
     }
     
-    //MARK: - Methods
+    //MARK: - METHODS
     fileprivate func convertCurrency() {
         toggleActivityIndicator(shown: true)
         
@@ -95,14 +95,12 @@ class CurrencyViewController: UIViewController {
     fileprivate func activateButton(button: UIButton) {
         button.isEnabled = true
         button.backgroundColor = UIColor.redThemeColor
-//        button.setGradientBackground(colorOne: UIColor.blueThemeColor, colorTwo: UIColor.lightBlueThemeColor, cornerRadius: button.frame.height / 2)
     }
     
     fileprivate func disableButton(button: UIButton) {
         button.isEnabled = false
         button.backgroundColor = UIColor.darkGray
         button.setTitleColor(UIColor.gray, for: .disabled)
-//        button.setGradientBackground(colorOne: UIColor.red, colorTwo: UIColor.green, cornerRadius: button.frame.height / 2)
     }
 
     

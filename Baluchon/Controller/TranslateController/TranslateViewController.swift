@@ -20,7 +20,6 @@ class TranslateViewController: UIViewController {
     @IBOutlet weak var translateButton: UIButton!
     
     
-    
 
     // MARK: - VIEWDIDLOAD
     override func viewDidLoad() {
@@ -68,6 +67,8 @@ class TranslateViewController: UIViewController {
     }
     
 }
+
+// MARK: - EXTENSION
 
 extension TranslateViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
