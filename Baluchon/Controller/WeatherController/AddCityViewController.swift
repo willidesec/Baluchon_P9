@@ -28,13 +28,14 @@ class AddCityViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        addCornerRadius()
+        addCornerRadius(to: addButton)
     }
     
     // MARK: - ACTION
     @IBAction func addButtonDidTapped() {
         let cityName = getCityName()
         checkIfTableContainsCityName(cityName)
+        cityTextField.resignFirstResponder()
     }
     
     
@@ -57,12 +58,15 @@ class AddCityViewController: UIViewController {
             presentAlert(message: "You already have added \(capitalizedName)")
         }
     }
-    
-    
 }
 
-extension AddCityViewController {
-    private func addCornerRadius() {
-        addButton.layer.cornerRadius = addButton.frame.height / 2
+// MARK: - EXTENSION
+
+extension AddCityViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        let cityName = getCityName()
+        checkIfTableContainsCityName(cityName)
+        return true
     }
 }
