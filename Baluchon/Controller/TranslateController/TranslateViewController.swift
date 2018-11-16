@@ -15,8 +15,8 @@ class TranslateViewController: UIViewController {
     var text = ""
 
     // MARK: - Outlet
-    @IBOutlet weak var textToTranslateTextView: UITextView!
-    @IBOutlet weak var translatedTextView: UITextView!
+    @IBOutlet weak var textToTranslateTextView: VerticallyCenteredTextView!
+    @IBOutlet weak var translatedTextView: VerticallyCenteredTextView!
     @IBOutlet weak var translateButton: UIButton!
     
     
