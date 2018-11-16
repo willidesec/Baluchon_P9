@@ -16,7 +16,6 @@ class TranslateViewController: UIViewController {
 
     // MARK: - Outlet
     @IBOutlet weak var textToTranslateTextView: UITextView!
-    
     @IBOutlet weak var translatedTextView: UITextView!
     @IBOutlet weak var translateButton: UIButton!
     
@@ -36,6 +35,7 @@ class TranslateViewController: UIViewController {
     //MARK: - ACTION
     @IBAction func translateButtonDidTapped() {
         translateText()
+        textToTranslateTextView.resignFirstResponder()
     }
     
     
