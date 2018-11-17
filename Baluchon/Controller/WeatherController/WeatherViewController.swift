@@ -139,6 +139,4 @@ extension WeatherViewController: AddNewCityDelegate {
             cities.append(name)
             displayWeatherInformations()
     }
-    
-    
 }

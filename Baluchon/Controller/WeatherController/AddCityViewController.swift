@@ -45,8 +45,13 @@ class AddCityViewController: UIViewController {
     
     // MARK: - METHODS
     func getCityName() -> String {
-        guard let cityName = cityTextField.text else { return "" }
-        return cityName
+        if cityTextField.text == "" {
+            presentAlert(message: "You have to enter a city name !")
+            return ""
+        } else {
+            guard let cityName = cityTextField.text else { return "" }
+            return cityName
+        }
     }
     
     func checkIfTableContainsCityName(_ cityName: String) {
