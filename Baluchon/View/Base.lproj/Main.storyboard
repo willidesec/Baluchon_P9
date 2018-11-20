@@ -567,7 +567,7 @@
                     <tabBarItem key="tabBarItem" title="Currency" image="Currency Icon" id="u8c-HZ-G56"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="5Uq-D1-K2N">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="101.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -592,7 +592,7 @@
                     <tabBarItem key="tabBarItem" title="Translate" image="Translate Icon" id="ivs-gU-VVp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="Ban-Fp-DGt">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="101.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="44"/>
@@ -614,7 +614,7 @@
                     <tabBarItem key="tabBarItem" title="Weather" image="Weather Icon" id="5ir-Mo-Eb8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="dOD-Sc-anU">
-                        <rect key="frame" x="0.0" y="44" width="375" height="102"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="101.33333333333334"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
